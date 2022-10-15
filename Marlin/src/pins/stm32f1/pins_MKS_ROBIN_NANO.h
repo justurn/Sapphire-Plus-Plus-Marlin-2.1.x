@@ -29,7 +29,7 @@
 #define ALLOW_STM32DUINO
 #include "env_validate.h"
 
-#define BOARD_INFO_NAME "MKS Robin Nano V1"
+#define BOARD_INFO_NAME "MKS Robin Nano"
 
 //
 // Release PB4 (Y_ENABLE_PIN) from JTAG NRST role
@@ -49,3 +49,26 @@
 #if HAS_TFT_LVGL_UI && FAN1_PIN != PB0 && HEATER_1_PIN != PB0
   #define BOARD_INIT() OUT_WRITE(PB0, LOW)
 #endif
+
+//
+// TMC 2209 UART MODE via WIFI pins
+//
+
+#if HAS_TMC_UART
+#define X_SERIAL_TX_PIN PA10
+#define X_SERIAL_RX_PIN PA10
+
+#define Y_SERIAL_TX_PIN PA9
+#define Y_SERIAL_RX_PIN PA9
+
+#define Z_SERIAL_TX_PIN PC7
+#define Z_SERIAL_RX_PIN PC7
+
+#define E0_SERIAL_TX_PIN PC13
+#define E0_SERIAL_RX_PIN PC13
+
+#define E1_SERIAL_TX_PIN PA5
+#define E1_SERIAL_RX_PIN PA5
+
+#define TMC_BAUD_RATE 19200
+#endif // TMC2208 || TMC2209
