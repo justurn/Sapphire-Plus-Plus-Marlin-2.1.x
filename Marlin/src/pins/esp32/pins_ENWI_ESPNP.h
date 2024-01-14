@@ -34,7 +34,9 @@
 //
 // I2S (steppers & other output-only pins)
 //
-#define I2S_STEPPER_STREAM
+#ifndef I2S_STEPPER_STREAM
+  #define I2S_STEPPER_STREAM
+#endif
 #if ENABLED(I2S_STEPPER_STREAM)
   #define I2S_WS                              17
   #define I2S_BCK                             22
@@ -91,7 +93,9 @@
 #define K_CS_PIN                             159
 
 // Reduce baud rate to improve software serial reliability
-#define TMC_BAUD_RATE                      19200
+#ifndef TMC_BAUD_RATE
+  #define TMC_BAUD_RATE                    19200
+#endif
 
 //
 // Temperature Sensors
@@ -101,7 +105,7 @@
 
 // General use mosfets, useful for things like pumps and solenoids
 // Shift register pins 128, 129, 130 and 131 are broken out and can be used
-#define FAN_PIN                              132
+#define FAN0_PIN                             132
 #define FAN1_PIN                             134
 #define FAN2_PIN                             135
 #define FAN3_PIN                             136
